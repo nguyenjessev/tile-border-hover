@@ -1,0 +1,11 @@
+:root {
+  --bg-color: hsl(0, 0%, 8%);
+}
+
+body {
+  background-color: var(--bg-color);
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
