@@ -3,9 +3,29 @@
 }
 
 body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--bg-color);
   height: 100vh;
   margin: 0;
   overflow: hidden;
   padding: 0;
+}
+
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 922px;
+  width: calc(100% - 20px);
+}
+
+.card {
+  background-color: hsla(0, 0%, 100%, 2%);
+  height: 260px;
+  width: 300px;
+  border: 1px solid hsla(0, 0%, 100%, 10%);
+  border-radius: 10px;
+  cursor: pointer;
 }
