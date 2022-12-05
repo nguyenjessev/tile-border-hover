@@ -28,4 +28,21 @@ body {
   border: 1px solid hsla(0, 0%, 100%, 10%);
   border-radius: 10px;
   cursor: pointer;
+  position: relative;
+}
+
+.card::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: radial-gradient(
+    800px circle at 100px 100px,
+    hsla(0, 0%, 100%, 6%),
+    transparent 40%
+  );
+  border-radius: inherit;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 0;
 }
