@@ -1,5 +1,6 @@
 :root {
   --bg-color: hsl(0, 0%, 8%);
+  --card-color: hsl(0, 0%, 9%);
 }
 
 body {
@@ -21,11 +22,14 @@ body {
   width: calc(100% - 20px);
 }
 
+#cards:hover > .card::after {
+  opacity: 1;
+}
+
 .card {
-  background-color: hsla(0, 0%, 100%, 2%);
+  background-color: hsla(0, 0%, 100%, 10%);
   height: 260px;
   width: 300px;
-  border: 1px solid hsla(0, 0%, 100%, 10%);
   border-radius: 10px;
   cursor: pointer;
   position: relative;
@@ -35,20 +39,41 @@ body {
   opacity: 1;
 }
 
+.card::after,
 .card::before {
   content: "";
   height: 100%;
   width: 100%;
+  border-radius: inherit;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transition: 500ms;
+}
+
+.card::before {
+  z-index: 3;
   background: radial-gradient(
     800px circle at var(--mouse-x) var(--mouse-y),
     hsla(0, 0%, 100%, 6%),
     transparent 40%
+  );
+}
+
+.card::after {
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y),
+    hsla(0, 0%, 100%, 30%),
+    transparent 40%
     );
-    border-radius: inherit;
-    position: absolute;
-    /* z-index: 2; */
-    left: 0;
-    top: 0;
-    opacity: 0;
-    transition: 500ms;
+  z-index: 1;
+}
+
+.card > .card-content {
+  background-color: var(--card-color);
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  z-index: 2;
 }
