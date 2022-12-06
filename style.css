@@ -31,18 +31,24 @@ body {
   position: relative;
 }
 
+.card:hover::before {
+  opacity: 1;
+}
+
 .card::before {
   content: "";
   height: 100%;
   width: 100%;
   background: radial-gradient(
-    800px circle at 100px 100px,
+    800px circle at var(--mouse-x) var(--mouse-y),
     hsla(0, 0%, 100%, 6%),
     transparent 40%
-  );
-  border-radius: inherit;
-  position: absolute;
-  z-index: 2;
-  left: 0;
-  top: 0;
+    );
+    border-radius: inherit;
+    position: absolute;
+    /* z-index: 2; */
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: 500ms;
 }
